@@ -1,0 +1,7 @@
+{
+    "slidev.force-enabled": false,
+    "slidev.include": [
+        "**/slides.md",
+        "0-initialisation/README.md"
+    ]
+}
