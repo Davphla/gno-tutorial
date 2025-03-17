@@ -1,13 +1,12 @@
-# gno-tutorial
+# Gno.land tutorial
 
 ![Gnoland](images/gnoland-logo.png)
 
 Welcome to Gno.land tutorial ! :ninja:
 
-This github has the sources of every contents used on the youtube series of Samourai World.
+Sources of every contents used on the youtube series of Samourai World are available here, containing learning resources and exercises ! 
 
-Each episode's folder contains resources, exercises and slides.
-And of course their linked video ;)
+And of course all the linked videos ;)
 
 ```
 ├── README.md
