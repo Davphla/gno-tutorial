@@ -22,7 +22,7 @@ Explain what the series is about
 Keep free going to desired episode.
 -->
 ---
-# To follow this tutorial
+# To follow this serie
 - Knowledge of programmation
 - Basic knowledge of Blockchain / Web 3
 
