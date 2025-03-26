@@ -5,9 +5,10 @@ import (
 )
 
 type Post struct {
-	Title   string
-	Content string
-	Author  std.Address
+	Title      string
+	Content    string
+	Author     std.Address
+	BlockStamp int64
 }
 
 // List of all posts
