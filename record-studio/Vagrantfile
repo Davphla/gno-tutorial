@@ -1,0 +1,93 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+    config.vm.box = "ubuntu/jammy64"
+    config.vm.hostname = "video-studio"
+  
+    # Configure resources (adjust based on your system capabilities)
+    config.vm.provider "virtualbox" do |vb|
+      vb.memory = 4096
+      vb.cpus = 4
+      vb.customize ["modifyvm", :id, "--graphicscontroller", "vboxsvga"]
+      vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
+      vb.customize ["modifyvm", :id, "--vram", "128"]
+      vb.gui = true
+    end
+  
+    # Synced folder for persistent data storage
+    config.vm.synced_folder "./persistent_data", "/home/vagrant/persistent_data", 
+      create: true, 
+      owner: "vagrant", 
+      group: "vagrant"
+  
+    # Copy configuration files to VM
+    config.vm.provision "file", source: "./config/sway.config", destination: "/tmp/sway.config"
+    config.vm.provision "file", source: "./config/waybar.config", destination: "/tmp/waybar.config"
+    config.vm.provision "file", source: "./config/waybar.css", destination: "/tmp/waybar.css"
+    config.vm.provision "file", source: "./config/foot.ini", destination: "/tmp/foot.ini"
+    config.vm.provision "file", source: "./config/settings.json", destination: "/tmp/settings.json"
+    config.vm.provision "file", source: "./start-sway.sh", destination: "/tmp/start-sway.sh"
+    config.vm.provision "file", source: "./reset-environment.sh", destination: "/tmp/reset-environment.sh"
+    config.vm.provision "file", source: "./README.md", destination: "/home/vagrant/README.md"
+  
+    # Provision script to set up environment
+    config.vm.provision "shell", inline: <<-SHELL
+      export DEBIAN_FRONTEND=noninteractive
+  
+      # Update and install dependencies
+      apt-get update
+      apt-get install -y wget curl git build-essential \
+        apt-transport-https software-properties-common \
+        sway waybar swaylock swayidle foot wl-clipboard mako-notifier \
+        grim slurp wofi python3-pip xdg-utils \
+        ffmpeg v4l2loopback-dkms v4l-utils obs-studio \
+        fonts-noto fonts-font-awesome fonts-firacode \
+        pavucontrol pulseaudio alsa-utils
+  
+      # Install VSCode
+      wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+      install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+      echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list
+      apt-get update
+      apt-get install -y code
+  
+      # Create configuration directories
+      mkdir -p /home/vagrant/.config/sway
+      mkdir -p /home/vagrant/.config/waybar
+      mkdir -p /home/vagrant/.config/foot
+      mkdir -p /home/vagrant/.config/Code/User
+      mkdir -p /home/vagrant/Screenshots
+  
+      # Move configuration files to their proper locations
+      mv /tmp/sway.config /home/vagrant/.config/sway/config
+      mv /tmp/waybar.config /home/vagrant/.config/waybar/config
+      mv /tmp/waybar.css /home/vagrant/.config/waybar/style.css
+      mv /tmp/foot.ini /home/vagrant/.config/foot/foot.ini
+      mv /tmp/settings.json /home/vagrant/.config/Code/User/settings.json
+      mv /tmp/start-sway.sh /home/vagrant/start-sway.sh
+      mv /tmp/reset-environment.sh /home/vagrant/reset-environment.sh
+  
+      # Install VSCode extensions
+      sudo -u vagrant code --install-extension pkief.material-icon-theme
+      sudo -u vagrant code --install-extension arcticicestudio.nord-visual-studio-code
+      sudo -u vagrant code --install-extension vscodevim.vim
+      sudo -u vagrant code --install-extension yzhang.markdown-all-in-one
+      sudo -u vagrant code --install-extension eamodio.gitlens
+  
+      # Make scripts executable
+      chmod +x /home/vagrant/start-sway.sh
+      chmod +x /home/vagrant/reset-environment.sh
+      
+      # Set ownership of all created files
+      chown -R vagrant:vagrant /home/vagrant
+    SHELL
+  
+    # Add script to restart the VM for complete reset
+    config.vm.provision "shell", run: "always", inline: <<-SHELL
+      echo "#!/bin/bash
+  echo 'Starting video recording environment...'
+  sudo -u vagrant /home/vagrant/start-sway.sh &" > /etc/profile.d/autostart.sh
+      chmod +x /etc/profile.d/autostart.sh
+    SHELL
+  end

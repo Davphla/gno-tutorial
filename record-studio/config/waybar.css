@@ -1,0 +1,36 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Noto Sans", "Font Awesome 5 Free";
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #2e3440;
+    color: #eceff4;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: #eceff4;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.focused {
+    background: #3b4252;
+    border-bottom: 3px solid #88c0d0;
+}
+
+#mode {
+    background: #5e81ac;
+    padding: 0 10px;
+    margin: 0 5px;
+}
+
+#clock, #pulseaudio {
+    background: #3b4252;
+    padding: 0 10px;
+    margin: 0 5px;
+}

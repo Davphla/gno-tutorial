@@ -17,7 +17,8 @@ Gnoweb exploration
 *(Useful links in description)*
 <!--
 Explain what the series is about
-- Every aspect of Gno (Beta version)
+- Every aspect of Gno
+- Things may be outdated
 - 1 episode = 1 subject
 Keep free going to desired episode.
 -->
@@ -39,10 +40,10 @@ Using GnoT, the currency of the blockchain, we can interact with it.
 
 ## What is Gno ?
 - Layer 1 Blockchain
-- Go in interpreted and Deterministic
+- Go in interpreted
 - Deployed codes are public and readable
 - Realms (Smart Contract) and Package (Library)
-- Currency -> GnoT 
+- Currency : GnoT 
 
 ---
 
@@ -51,7 +52,9 @@ Using GnoT, the currency of the blockchain, we can interact with it.
 make
 go
 ```
+---
 
+## Installation
 If not already, you should add Go environment variables
 ```
 export GOPATH=$HOME/go >> path/to/shell_config

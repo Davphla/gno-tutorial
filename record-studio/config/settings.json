@@ -1,0 +1,16 @@
+{
+    "editor.fontFamily": "'Fira Code', 'monospace'",
+    "editor.fontSize": 14,
+    "editor.fontLigatures": true,
+    "editor.renderWhitespace": "boundary",
+    "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "line",
+    "editor.minimap.enabled": false,
+    "editor.wordWrap": "on",
+    "workbench.colorTheme": "Nord",
+    "terminal.integrated.fontFamily": "'Fira Code'",
+    "window.titleBarStyle": "custom",
+    "window.zoomLevel": 0,
+    "workbench.startupEditor": "newUntitledFile",
+    "telemetry.telemetryLevel": "off"
+}
