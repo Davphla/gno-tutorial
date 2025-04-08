@@ -26,36 +26,40 @@ Next tutorial : Test des packets
 
 -->
 ![width:600px](../images/gnoland-logo.png)
-# 1 - Hello World !
-Hello World !
-Package
-Gnokey
-Deploy our first dApp !
+# 1 - Hello Gno World 🌍
+First decentralized app (dApp) in Gno!
+- What’s Gno?
+- Build a smart contract
+- Publish your first dApp
+<!--
+- Learn what makes Gno different from Go
+- Build and deploy your first simple contract
+- Understand basic smart contract structure and deployment tools
+-->
+
 
 ---
 <!--
 Gno is designed for blockchain applications
 Go for general purpose
-
 -->
-# **Gno** vs **Go**?
+# **Gno** vs **Go** ?
 - Familiar **syntax** and **standard library** (*mostly the same*).
 
 ### However, Gno introduces key differences:
-- Deterministic execution
-- No external network access for security
-- Native smart contract capabilities
-- No goroutine (yet!)
+- ✅ **Deterministic execution** (no randomness or time-based logic)
+- ✅ Built-in **smart contract support**
+- 🚫 **No external network access** (for security and reproducibility)
+- 🚫 **No goroutines** (yet – concurrency not supported)
+
 
 ---
-### Public Blog Platform
-- **Features:**
-  - Public feed of messages
-  - Blockstamp for each message
-  - Author identification
-
+## 📢 Let's build a Public Blog Platform
+### ✨ Features:
+  - A **public message feed** (anyone can post)
+- Each message has:
 ```go
-type Post struct {
+type Message struct {
     Title   string
     Content string
     Author  std.Address
@@ -70,16 +74,10 @@ _class: lead
 # Let's code it !
 
 <!-- 
-## Using Online Libraries
-- Utilize prebuilt Gno packages
-- Check `gnoland` repository for reusable components
 
----
-
+First we need to create a private key using gnokey
 ## Creating a Key with `gnokey`
-```sh
 gnokey add mykey
-```
 - Securely manage private keys
 
 ## Deploying the Contract on Beta Net
