@@ -19,8 +19,9 @@ var Posts []Post
 // AddPost appends a new post to the Posts list.
 func AddPost(title, content string) {
 	newPost := &Post{
-		Title:     title,
-		Content:   content,
+		Title:   title,
+		Content: content,
+		// The author of the address is the previous realm, the realm that called this one
 		Author:    std.PreviousRealm().Address(),
 		CreatedAt: time.Now(),
 	}
