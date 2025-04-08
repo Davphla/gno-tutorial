@@ -63,7 +63,7 @@ type Message struct {
     Title   string
     Content string
     Author  std.Address
-    BlockStamp int64
+    CreatedAt time.Time
 }
 ```
 
@@ -75,14 +75,27 @@ _class: lead
 
 <!-- 
 
-First we need to create a private key using gnokey
-## Creating a Key with `gnokey`
-gnokey add mykey
-- Securely manage private keys
+Explain how to render
+Explain the data 
+How to add new post then
+Check result using gnodev everytime
 
-## Deploying the Contract on Beta Net
-```sh
+Next time, let's deploy and test next episode
+-->
+
+<!--
+-> Let's deploy and test your smart contract !
+
+First we need to create a private key using gnokey
+gnokey add mykey
+We can securely manage private keys
+
+Then let's deploy it on the deployed net
+
+Let's get token
+
 gnoland tx call "publish_message" --args "Hello, Gno!"
-```
-- Deploy and test your smart contract
+
+
+
 -->

@@ -27,6 +27,11 @@ func AddPost(title, content string) {
 	Posts = append(Posts, *newPost)
 }
 
+// TODO Complete this function
+// Comment allows users to add a comment to a specific post by its index.
+func Comment(index int, comment string) {
+}
+
 // Render displays all posts in a readable format.
 func Render(_ string) string {
 	var result string
