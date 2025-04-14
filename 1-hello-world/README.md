@@ -27,10 +27,10 @@ Next tutorial : Test des packets
 -->
 ![width:600px](../images/gnoland-logo.png)
 # 1 - Hello Gno World 🌍
-First decentralized app (dApp) in Gno!
-- What’s Gno?
-- Build a smart contract
-- Publish your first dApp
+What’s Gno?
+Build a realm
+Publish your first dApp
+
 <!--
 - Learn what makes Gno different from Go
 - Build and deploy your first simple contract
@@ -42,15 +42,18 @@ First decentralized app (dApp) in Gno!
 <!--
 Gno is designed for blockchain applications
 Go for general purpose
+
+(no randomness or time-based logic)
+ (for security and reproducibility)
 -->
 # **Gno** vs **Go** ?
-- Familiar **syntax** and **standard library** (*mostly the same*).
+- Familiar **syntax** and **standard library**.
 
-### However, Gno introduces key differences:
-- ✅ **Deterministic execution** (no randomness or time-based logic)
+### Key differences:
+- ✅ **Deterministic execution** 
 - ✅ Built-in **smart contract support**
-- 🚫 **No external network access** (for security and reproducibility)
-- 🚫 **No goroutines** (yet – concurrency not supported)
+- 🚫 **No external network access**
+- 🚫 **No goroutines** (yet !)
 
 
 ---

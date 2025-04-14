@@ -9,12 +9,11 @@ marp: true
 
 ![width:600px](../images/gnoland-logo.png)
 # 0 - Initialisation
-Install Gno
-Deploy Realm in local
-Gnoweb exploration
+Installation of Gno 
+Setup local environment
 \
 \
-*(Useful links in description)*
+*🔗 Useful links available in description*
 <!--
 Explain what the series is about
 - Every aspect of Gno
@@ -23,10 +22,11 @@ Explain what the series is about
 Keep free going to desired episode.
 -->
 ---
-# To follow this serie
-- Knowledge of programmation
-- Basic knowledge of Blockchain / Web 3
 
+## Prerequisities
+
+- Basic programming knowledge
+- Familiarity with Blockchain / Web3 concepts
 
 ---
 <!--
@@ -38,27 +38,26 @@ Using GnoT, the currency of the blockchain, we can interact with it.
 
 -->
 
-## What is Gno ?
+## What is Gno.Land ?
 - Layer 1 Blockchain
-- Go in interpreted
-- Deployed codes are public and readable
-- Realms (Smart Contract) and Package (Library)
-- Currency : GnoT 
-
+- Gno language (interpreted Go variant)
+- Open-source and readable smart contracts
+- Based on two components:
+    **Realms** = Smart Contracts
+    **Packages** = Shared Libraries
+- Native token: **GnoT**
 ---
 
-## Prerequisities
-```
-make
-go
-```
----
+## Go Environment Setup
 
-## Installation
-If not already, you should add Go environment variables
+If Go isn’t already configured, add this to your shell config (.bashrc, .zshrc, etc.):
 ```
-export GOPATH=$HOME/go >> path/to/shell_config
-export PATH=$PATH:$GOPATH/bin >> path/to/shell_config
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+```
+💡 Then restart your shell or run:
+```
+source path/to/shell_config
 ```
 
 <!--
