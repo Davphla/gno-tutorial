@@ -34,7 +34,10 @@ jobs:
         run: nci
 
       - name: Build
-        run: nr build --base /${{github.event.repository.name}}/
+        run: \
+            npx slidev build ./2-hello-world/slides.md \
+          --base /${{ github.event.repository.name }} \
+          --out dist/2-hello-world 
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
