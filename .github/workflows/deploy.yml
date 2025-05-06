@@ -27,11 +27,8 @@ jobs:
         with:
           node-version: 'lts/*'
 
-      - name: Setup @antfu/ni
-        run: npm i -g @antfu/ni
-
       - name: Install dependencies
-        run: nci
+        run: npm install
 
       - name: Build
         run: \
