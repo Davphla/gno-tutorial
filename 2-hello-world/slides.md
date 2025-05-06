@@ -1,102 +1,108 @@
 ---
-theme: seriph
+theme: academic
 paginate: true
 transition: slide-left
 title: Welcome to Slidev
-layout: center
-background: https://marp.app/assets/hero-background.svg
+coverBackgroundUrl: https://marp.app/assets/hero-background.svg
 mdc: true
 ---
 
-![](./images/gnoland-logo.png){width=500px lazy}
+![](./images/gnoland-logo.png){width=400px}
 
 # 2 - Hello Gno World 🌍
-What’s Gno?
+
+What’s Gno?  
 Build and publish your first dApp
 
 <!--
-Deployed online your first simple dApp
-
-What is possible in Gno compared to Go
-How to import already made package
-
-Créer le contenu d'un dApp simple, avec des fonctinonalites + ou - avancé
-Platforme de messagerie publique, feed
-Une liste de message, avec un blockstamp, et un auteur
-
-Utilisation de librairie online 
-Créer une clé avec gnokey
-Deploiement du contrat sur la test net
-
-- Learn what makes Gno different from Go
-- Build and deploy your first simple contract
-- Understand basic smart contract structure and deployment tools
+Deployed online your first simple dApp  
+What is possible in Gno compared to Go  
+How to import already made package  
+Créer le contenu d'un dApp simple, avec des fonctionnalités + ou - avancées  
+Plateforme de messagerie publique, feed  
+Une liste de messages, avec un blockstamp, et un auteur  
+Utilisation de librairie online  
+Créer une clé avec gnokey  
+Déploiement du contrat sur le testnet  
 -->
 
 ---
+
 # **Gno** vs **Go** ?
-- Familiar **syntax** and **standard library**.
+
+- Familiar **syntax** and **standard library**
 
 ### Key differences:
-- ✅ **Deterministic execution**
-- ✅ Built-in **smart contract support**
-- 🚫 **No external network access**
-- 🚫 **No goroutines** (yet !)
+
+- ✅ **Deterministic execution**  
+- ✅ Built-in **smart contract support**  
+- 🚫 **No external network access**  
+- 🚫 **No goroutines** (yet!)
 
 ---
 
 ## 📢 Let's build a Public Blog Platform
+
 ### ✨ Features:
-  - A **public message feed** (anyone can post)
-- Each message has:
+- A **public message feed** (anyone can post)
+
+Each message has:
+
 ```go
 type Message struct {
-    Title   string
-    Content string
-    Author  std.Address
+    Title     string
+    Content   string
+    Author    std.Address
     CreatedAt time.Time
 }
+````
 
 <!--
-Gno is designed for blockchain applications
-Go for general purpose
-
-(no randomness or time-based logic)
- (for security and reproducibility)
+Gno is designed for blockchain applications  
+Go is for general-purpose  
+No randomness or time-based logic  
+(for security and reproducibility)
 -->
-
-
-```
 
 ---
-<!--
-_class: lead
--->
-# Let's code it !
 
-<!-- 
+# Let's code it!
 
-Explain how to render
-Explain the data 
-How to add new post then
-Check result using gnodev everytime
+We'll walk through:
 
-Next time, let's deploy and test next episode
--->
+* Rendering messages
+* Managing post data
+* Adding new posts
+* Checking output via `gnodev`
 
 <!--
--> Let's deploy and test your smart contract !
+Next: Deploy and test your smart contract  
+-->
 
-First we need to create a private key using gnokey
+---
+
+# 🚀 Deploy your Smart Contract
+
+1. **Create a key:**
+
+```bash
 gnokey add mykey
-We can securely manage private keys
+```
 
-Then let's deploy it on the deployed net
+2. **Deploy to testnet**
 
-Let's get token
+3. **Get test tokens**
 
+4. **Call your contract:**
+
+```bash
 gnoland tx call "publish_message" --args "Hello, Gno!"
+```
 
-
-
+<!--
+Securely manage keys  
+Testnet interaction  
+Contract invocation  
 -->
+
+
