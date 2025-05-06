@@ -3,6 +3,7 @@
     "@slidev/cli": "^51.6.0",
     "@slidev/theme-default": "^0.25.0",
     "@slidev/theme-seriph": "^0.25.0",
+    "npx": "^10.2.2",
     "slidev-theme-academic": "^2.1.0"
   },
   "devDependencies": {

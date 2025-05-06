@@ -16,7 +16,7 @@ Reentrency attack :
 Meanwhile original method is explicit
 (C --[$1]-> A -|cross|-> B --< A --[transaction_complete]-< C)
 
-Some specific case :
+# Some specific case
 Calling the receiver (Reentrency attack)
 (C --[$1]-> A -|cross|-> B -|cross|-> A -|cross|-> B --< A --< B --< A --[transaction_complete]-< C)
 
