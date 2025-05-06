@@ -21,13 +21,14 @@ And of course all the linked videos ;)
 
 ## How to launch the Slidev presentations
 
-Each episode folder may contain a `.md` file ready for a Slidev presentation.
+Each episode folder may contain a `slides.md` file ready for a Slidev presentation.
 
 ### Installation
 First, make sure you have **Node.js** installed.  
 If not, download it here: [https://nodejs.org/](https://nodejs.org/)
 
 Then, install Slidev locally:
+
 
 To run a presentation locally:
 
