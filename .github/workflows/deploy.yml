@@ -33,7 +33,7 @@ jobs:
       - name: Build presentation-2
         run: |
           npx slidev build /${{ github.event.repository.name }}/2-hello-world/slides.md \
-            --out /${{ github.event.repository.name }}/dist/ \
+            --out /${{ github.event.repository.name }}
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
