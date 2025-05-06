@@ -17,7 +17,7 @@ find . -type f -name "slides*.md" | while read slides_md; do
   mkdir -p "pdf/$folder"
 
   # Run the Slidev export command to generate the PDF for the specific markdown file
-  npx slidev export "$folder/$filename"
+  npx slidev export "$folder/$filename" --output slides-export.pdf
 
   # Move the generated PDF to the corresponding directory in 'pdf'
   mv slides-export.pdf "pdf/$folder/slides.pdf"
