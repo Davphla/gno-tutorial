@@ -31,8 +31,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npx slidev build ./2-hello-world/slides.md \
-            --out dist/2-hello-world
+        run: npx slidev build ./2-hello-world/slides.md --out dist/2-hello-world
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
