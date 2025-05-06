@@ -1,4 +1,4 @@
-name: Deploy Slidev to GitHub Pages
+name: Deploy Multiple Slidev Presentations
 
 on:
   push:
@@ -17,6 +17,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -29,8 +30,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Slidev with base path
-        run: npx slidev build --base /${{ github.event.repository.name }}/
+      - name: Build presentation-3
+        run: |
+          npx slidev build ./3-test-me \
+            --base /${{ github.event.repository.name }}/3-test-me/ \
+            --out dist/3-test-me
+
+      - name: Copy landing page
+        run: cp public/index.html dist/index.html
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
@@ -47,6 +54,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Deploy
         id: deployment
