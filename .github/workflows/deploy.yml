@@ -33,10 +33,7 @@ jobs:
       - name: Build presentation-2
         run: |
           npx slidev build /${{ github.event.repository.name }}/2-hello-world/slides.md \
-            --out /${{ github.event.repository.name }}/dist/2-hello-world/ \
-
-      - name: Copy landing page
-        run: cp public/index.html dist/index.html
+            --out /${{ github.event.repository.name }}/dist/ \
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
