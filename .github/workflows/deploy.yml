@@ -30,11 +30,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build presentation-3
+      - name: Build presentation-2
         run: |
-          npx slidev build ./3-test-me \
-            --base /${{ github.event.repository.name }}/3-test-me/ \
-            --out dist/3-test-me
+          npx slidev build ./2-hello-world/slides.md \
+            --out /${{ github.event.repository.name }}/dist/2-hello-world/ \
 
       - name: Copy landing page
         run: cp public/index.html dist/index.html
