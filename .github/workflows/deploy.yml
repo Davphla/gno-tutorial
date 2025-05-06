@@ -27,14 +27,17 @@ jobs:
         with:
           node-version: 'lts/*'
 
+
+      - name: Setup @antfu/ni
+        run: npm i -g @antfu/ni
+
       - name: Install dependencies
-        run: npm install
+        run: nci
 
       - name: Build
-        run: |
-            npx slidev build ./2-hello-world/slides.md \
-            --base /${{ github.event.repository.name }} \
-            --out dist/
+        run: nr build ./2-hello-world/slides.md \
+            --base /${{github.event.repository.name}}/2-hello-world/ \
+            --out dist/2-hello-world
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
