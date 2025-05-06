@@ -18,6 +18,7 @@ var Posts []Post
 
 // CreatePost appends a new post to the Posts list.
 func CreatePost(title, content string) {
+	crossing()
 	if title == "" {
 		panic("No title")
 	}

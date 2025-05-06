@@ -14,24 +14,22 @@ aspectRatio: 16/9
 
 A deep dive into Gno’s realm system and rules
 
----
+<!--
+Added in master.2250
 
-# Overview
-
-* **What is a Realm?**
-* **Borrowing vs. Crossing**
-* **Key Rules & Best Practices**
-* **Code Examples**
-* **Why Interrealm Matters**
+Define what a realm is: isolated state and logic. 
+Highlight benefits like security, traceability, and logical isolation. 
+This sets the foundation for understanding interrealm behavior.
+-->
 
 ---
 
 # What is a Realm?
 
-* A **realm** is an isolated execution and storage context — like its own world 🌍
+* A **realm** is an isolated execution and storage context 🌍
 * Each realm has:
   - Its own **state and authority**
-  - Rules for **entry**, **exit**, and **data modification**
+  - Rules for **entry** and **data modification**
 * Realms enforce:
   - **Security**, **Traceability** and **Isolation** 
 
@@ -42,6 +40,12 @@ flowchart TD
     L1[Local State]
   end
 ```
+ <!-- 
+Show how realm A can call into realm B. Emphasize the layered provenance stack.
+
+Realms are like smart contract containers — fully isolated and self-governed.
+Think secure micro world.
+ --> 
 
 ---
 
@@ -75,6 +79,9 @@ kanban
         C[Origin: **User Realm**]
 ```
 
+ <!-- Calls chain across realms. 
+ Provenance stack tracks who called whom --> 
+
 ---
 
 # Interrealm Flow
@@ -102,6 +109,8 @@ kanban
         Top[Current Realm: **A**]
         C[Origin: **User Realm**]
 ```
+
+ <!-- Speaker: Unlike crossing realms, calling a local package keeps everything within the same provenance level. --> 
 
 ---
 
@@ -240,66 +249,6 @@ func CreatePost(title, content string) {
 }
 ```
 ````
-
-
----
-
-```mermaid
-
-flowchart LR
-
-%% Normal State
-subgraph Normal_State["Normal Transaction"]
-    C1["C"] --[$1]--> A1["A"]
-    A1 --> B1["B"]
-    B1 -- Return --> A1
-    A1 --[transaction_complete]--> C1
-end
-
-%% Reentrancy Attack
-subgraph Reentrancy_Attack["Reentrancy Attack"]
-    A2["A"] --[$1]--> B2["B"]
-    B2 --> A2r1["A (reentered)"]
-    A2r1 --[$1]--> B2r1["B (reentered)"]
-    B2r1 --> A2r2["A (reentered again)"]
-    A2r2 --[$1]--> B2r2["B (loop...)"]
-end
-
-%% Borrowing (Safe)
-subgraph Borrowing_Method["Borrowing Pattern (Safe)"]
-    C3["C"] --[$1]--> A3["A"]
-    A3 --> B3["{B()} (internal method)"]
-    A3 --[transaction_complete]--> C3
-end
-
-%% Explicit External Call (Original)
-subgraph Explicit_Call["Original (Cross-Realm Call)"]
-    C4["C"] --[$1]--> A4["A"]
-    A4 -. cross call .-> B4["B"]
-    B4 -- Return --> A4
-    A4 --[transaction_complete]--> C4
-end
-
-%% Specific Case: Receiver Reentrancy
-subgraph Receiver_Reentrancy["Receiver Reentrancy"]
-    C5["C"] --[$1]--> A5["A"]
-    A5 -. cross call .-> B5["B"]
-    B5 -. cross call .-> A5r["A (reentered)"]
-    A5r -. cross call .-> B5r["B (again)"]
-    B5r -- Return --> A5r
-    A5r -- Return --> B5
-    B5 -- Return --> A5
-    A5 --[transaction_complete]--> C5
-end
-
-%% Specific Case: Package Call
-subgraph Package_Call["Calling a Package"]
-    C6["C"] --[$1]--> A6["A"]
-    A6 --> P6["{P()} (internal call like borrowing)"]
-    A6 --[transaction_complete]--> C6
-end
-```
-
 ---
 
 # Rules Summary
