@@ -31,7 +31,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: \
+        run: |
             npx slidev build ./2-hello-world/slides.md \
           --base /${{ github.event.repository.name }} \
           --out dist/2-hello-world 
