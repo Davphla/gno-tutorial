@@ -38,6 +38,7 @@ func Render(_ string) string {
 		result += "Title: " + post.Title + "\n\n"
 		result += "Content: " + post.Content + "\n\n"
 		result += "Author: " + post.Author.String() + "\n\n"
+		result += "Time: " + post.CreatedAt.Format(time.DateTime) + "\n\n"
 		result += "-------------------------\n\n"
 	}
 	return result

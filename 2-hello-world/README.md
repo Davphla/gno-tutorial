@@ -26,10 +26,9 @@ Next tutorial : Test des packets
 
 -->
 ![width:600px](../images/gnoland-logo.png)
-# 1 - Hello Gno World 🌍
+# 2 - Hello Gno World 🌍
 What’s Gno?
-Build a realm
-Publish your first dApp
+Build and publish your first dApp
 
 <!--
 - Learn what makes Gno different from Go

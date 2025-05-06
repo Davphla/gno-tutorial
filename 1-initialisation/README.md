@@ -8,7 +8,7 @@ marp: true
 ---
 
 ![width:600px](../images/gnoland-logo.png)
-# 0 - Initialisation
+# 1 - Initialisation
 Installation of Gno 
 Setup local environment
 \
@@ -50,15 +50,15 @@ Using GnoT, the currency of the blockchain, we can interact with it.
 
 ## Go Environment Setup
 
-If Go isn’t already configured, add this to your shell config (.bashrc, .zshrc, etc.):
+If Go isn't already configured, add the environment variable of Go binaries path to your shell config (e.g., .bashrc, .zshrc, etc.):
 ```
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+- For .bashrc, .zshrc, etc.
+export PATH=$PATH:$HOME/go/bin
+
+- For fish (fish.config):
+set -gx PATH $PATH $HOME/go/bin
 ```
-💡 Then restart your shell or run:
-```
-source path/to/shell_config
-```
+💡 Then restart your shell
 
 <!--
 Exemple of the counter application :
