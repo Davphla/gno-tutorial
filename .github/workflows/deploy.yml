@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -32,7 +32,7 @@ jobs:
 
       - name: Build presentation-2
         run: |
-          npx slidev build ./2-hello-world/slides.md \
+          npx slidev build /${{ github.event.repository.name }}/2-hello-world/slides.md \
             --out /${{ github.event.repository.name }}/dist/2-hello-world/ \
 
       - name: Copy landing page
