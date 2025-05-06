@@ -31,7 +31,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npx slidev build ./short-video/inter-realm/slides.md --out dist/short-video/inter-realm/ --base /${{github.event.repository.name}}/short-video/inter-realm/
+        run: npx slidev build ./short-video/inter-realm/slides.md --out dist/short-video/inter-realm/ --base /${{github.event.repository.name}}
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
