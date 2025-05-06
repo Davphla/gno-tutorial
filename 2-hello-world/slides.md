@@ -1,23 +1,20 @@
 ---
-theme: gaia
-_class: lead
+theme: seriph
 paginate: true
-backgroundColor: #fff
-backgroundImage: url('https://marp.app/assets/hero-background.svg')
-marp: true
+transition: slide-left
+title: Welcome to Slidev
+layout: center
+background: https://marp.app/assets/hero-background.svg
+mdc: true
 ---
 
+![](./images/gnoland-logo.png){width=500px lazy}
 
-![width:600px](../images/gnoland-logo.png)
 # 2 - Hello Gno World 🌍
 What’s Gno?
 Build and publish your first dApp
 
 <!--
-- Learn what makes Gno different from Go
-- Build and deploy your first simple contract
-- Understand basic smart contract structure and deployment tools
-
 Deployed online your first simple dApp
 
 What is possible in Gno compared to Go
@@ -29,30 +26,25 @@ Une liste de message, avec un blockstamp, et un auteur
 
 Utilisation de librairie online 
 Créer une clé avec gnokey
-Deploiement du contrat sur la beta net
-Test des packets
--->
+Deploiement du contrat sur la test net
 
+- Learn what makes Gno different from Go
+- Build and deploy your first simple contract
+- Understand basic smart contract structure and deployment tools
+-->
 
 ---
-<!--
-Gno is designed for blockchain applications
-Go for general purpose
-
-(no randomness or time-based logic)
- (for security and reproducibility)
--->
 # **Gno** vs **Go** ?
 - Familiar **syntax** and **standard library**.
 
 ### Key differences:
-- ✅ **Deterministic execution** 
+- ✅ **Deterministic execution**
 - ✅ Built-in **smart contract support**
 - 🚫 **No external network access**
 - 🚫 **No goroutines** (yet !)
 
-
 ---
+
 ## 📢 Let's build a Public Blog Platform
 ### ✨ Features:
   - A **public message feed** (anyone can post)
@@ -64,6 +56,16 @@ type Message struct {
     Author  std.Address
     CreatedAt time.Time
 }
+
+<!--
+Gno is designed for blockchain applications
+Go for general purpose
+
+(no randomness or time-based logic)
+ (for security and reproducibility)
+-->
+
+
 ```
 
 ---

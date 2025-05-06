@@ -1,7 +1,6 @@
 package blog
 
 import (
-	"errors"
 	"std"
 	"time"
 )
@@ -18,21 +17,23 @@ type Post struct {
 var Posts []Post
 
 // CreatePost appends a new post to the Posts list.
-func CreatePost(title, content string) error {
+func CreatePost(title, content string) {
+	crossing()
 	if title == "" {
-		return errors.New("No title")
+		panic("No title")
 	}
 
-	newPost := Post{
-		Title:   title,
-		Content: content,
-		// The author of the address is the previous realm, the realm that called this one
+	newPost := &Post{
+		Title:     title,
+		Content:   content,
 		Author:    std.OriginCaller(),
 		CreatedAt: time.Now(),
 	}
-	Posts = append(Posts, newPost)
-	return nil
+	Posts = append(Posts, *newPost)
 }
+
+// Init function is executed during realm initialization]
+func init() {}
 
 // Render displays all posts in a readable format.
 func Render(_ string) string {
