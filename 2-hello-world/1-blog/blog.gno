@@ -1,6 +1,7 @@
 package blog
 
 import (
+	"errors"
 	"std"
 	"time"
 )
@@ -16,16 +17,21 @@ type Post struct {
 // Global list to store all posts.
 var Posts []Post
 
-// AddPost appends a new post to the Posts list.
-func AddPost(title, content string) {
-	newPost := &Post{
+// CreatePost appends a new post to the Posts list.
+func CreatePost(title, content string) error {
+	if title == "" {
+		return errors.New("No title")
+	}
+
+	newPost := Post{
 		Title:   title,
 		Content: content,
 		// The author of the address is the previous realm, the realm that called this one
-		Author:    std.PreviousRealm().Address(),
+		Author:    std.OriginCaller(),
 		CreatedAt: time.Now(),
 	}
-	Posts = append(Posts, *newPost)
+	Posts = append(Posts, newPost)
+	return nil
 }
 
 // Render displays all posts in a readable format.
@@ -35,7 +41,7 @@ func Render(_ string) string {
 		return "No posts"
 	}
 	for _, post := range Posts {
-		result += "Title: " + post.Title + "\n\n"
+		result += "# Title: " + post.Title + "\n\n"
 		result += "Content: " + post.Content + "\n\n"
 		result += "Author: " + post.Author.String() + "\n\n"
 		result += "Time: " + post.CreatedAt.Format(time.DateTime) + "\n\n"
