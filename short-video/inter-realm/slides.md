@@ -8,8 +8,6 @@ aspectRatio: 16/9
 ---
 
 
-![](./images/gnoland-logo.png){width=450px}
-
 # Interrealm in Gno 🌐
 
 A deep dive into Gno’s realm system and rules
@@ -290,23 +288,6 @@ func CreateUser(name string) {
 // In realmA
 cross(realmB.CreateUser)("alice")
 ```
-
----
-
-# Why Interrealm Matters
-
-**Interrealm mechanics aren't just an abstraction — they enforce Gno's core values:**
-
-- 🔐 **Security**  
-  Restrict unauthorized writes and state mutation.
-- 🧱 **Isolation**  
-  Keeps logic and data siloed, preventing unintended coupling.
-- 🕵️‍♀️ **Traceability**  
-  You always know *who called what and where*.
-- 🔁 **Upgradeability**  
-  Mutable realms (code you own) vs. p-packages (immutable dependencies).
-
-![](https://upload.wikimedia.org/wikipedia/commons/3/3f/Shield_icon.svg){width=200px}
 
 ---
 
