@@ -41,6 +41,29 @@ Déploiement du contrat sur le testnet
 
 ---
 
+# Effective Gno
+As quote from the "Effective Gno" guide:
+
+*Embrace global variables in realms.*
+
+*"Don't fear panic. Embrace it for fast failure in smart contract logic."*
+
+*Design your realm as a public API.*
+
+<!--
+- **Embrace global state**  
+  Realms *are* global by design — use them like APIs for shared data.
+
+- **Fail fast with `panic`**  
+  Avoid silent errors. Panic clearly when assumptions break.  
+
+- **Design for readability**  
+  Code clarity matters more than cleverness — your smart contracts are public infrastructure.
+
+-->
+
+---
+
 ## 📢 Let's build a Public Blog Platform
 
 ### ✨ Features:
@@ -55,54 +78,18 @@ type Message struct {
     Author    std.Address
     CreatedAt time.Time
 }
-````
-
-<!--
-Gno is designed for blockchain applications  
-Go is for general-purpose  
-No randomness or time-based logic  
-(for security and reproducibility)
--->
+```
 
 ---
 
 # Let's code it!
 
-We'll walk through:
-
-* Rendering messages
-* Managing post data
-* Adding new posts
-* Checking output via `gnodev`
-
 <!--
 Next: Deploy and test your smart contract  
--->
-
----
-
-# 🚀 Deploy your Smart Contract
-
-1. **Create a key:**
-
-```bash
-gnokey add mykey
-```
-
-2. **Deploy to testnet**
-
-3. **Get test tokens**
-
-4. **Call your contract:**
-
-```bash
-gnoland tx call "publish_message" --args "Hello, Gno!"
-```
-
-<!--
 Securely manage keys  
 Testnet interaction  
-Contract invocation  
+Contract invocation
+
 -->
 
 

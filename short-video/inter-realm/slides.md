@@ -79,8 +79,8 @@ kanban
         C[Origin: **User Realm**]
 ```
 
- <!-- Calls chain across realms. 
- Provenance stack tracks who called whom --> 
+<!-- Calls chain across realms. 
+Provenance stack tracks who called whom --> 
 
 ---
 
@@ -295,8 +295,6 @@ cross(realmB.CreateUser)("alice")
 
 # Why Interrealm Matters
 
-::: columns
-::: column
 **Interrealm mechanics aren't just an abstraction — they enforce Gno's core values:**
 
 - 🔐 **Security**  
@@ -307,11 +305,8 @@ cross(realmB.CreateUser)("alice")
   You always know *who called what and where*.
 - 🔁 **Upgradeability**  
   Mutable realms (code you own) vs. p-packages (immutable dependencies).
-:::
 
-::: column
 ![](https://upload.wikimedia.org/wikipedia/commons/3/3f/Shield_icon.svg){width=200px}
-:::
 
 ---
 
