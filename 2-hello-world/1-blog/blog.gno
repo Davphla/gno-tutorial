@@ -17,6 +17,7 @@ type Post struct {
 var Posts []Post
 
 // CreatePost appends a new post to the Posts list.
+// Title should present.
 func CreatePost(title, content string) {
 	// Necessary when calling our contract from another space
 	crossing()
@@ -25,13 +26,13 @@ func CreatePost(title, content string) {
 		panic("No title")
 	}
 
-	newPost := &Post{
+	newPost := Post{
 		Title:     title,
 		Content:   content,
 		Author:    std.OriginCaller(),
 		CreatedAt: time.Now(),
 	}
-	Posts = append(Posts, *newPost)
+	Posts = append(Posts, newPost)
 }
 
 // Init function is executed during realm initialization]

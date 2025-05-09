@@ -1,85 +1,76 @@
 ---
-theme: academic
+theme: default
 paginate: true
 transition: slide-left
-title: Gno.Land Series - Episode 1
-coverBackgroundUrl: https://marp.app/assets/hero-background.svg
+title: Gno.Land Series — Episode 1  
+subtitle: Initializing Gno  
+coverBackgroundUrl: https://marp.app/assets/hero-background.svg  
 mdc: true
 ---
 
-# 1 - Initialising Gno
+# Episode 1: Initializing Gno
 
-- Installation of Gno  
-- Setup local environment  
+- ✅ Installing Gno  
+- ⚙️ Setting up a local environment  
 
-📎 *Useful links available in description*
+📎 *Helpful links available in the episode description*
 
-<!--
-Overview of the series:
-- Covers all aspects of Gno
-- Content may become outdated
-- Each episode = single topic
-- Free to skip to any episode
+<!--  
+Series Overview:  
+- Covers the Gno ecosystem in-depth  
+- Focused, single-topic episodes  
+- Some content may become outdated  
+- Feel free to skip around  
 -->
 
 ---
 
-## ✅ Prerequisites
+# ✅ **Prerequisites**
 
-- Basic programming knowledge  
-- Familiarity with Blockchain / Web3 concepts  
+- 🧠 Basic programming knowledge  
+- 🌐 Understanding of Blockchain / Web3 fundamentals  
 
 ---
 
-## 🌐 What is Gno.Land?
+# 🌐 **What is Gno.Land?**
 
-- Layer 1 Blockchain  
-- **Gno language**: Interpreted variant of Go  
-- **Readable & open-source smart contracts**  
+- 🔗 A **Layer 1** Blockchain  
+- 📝 Uses **Gno language** — an interpreted version of Go  
+- 🧠 Focus on readable, open-source smart contracts  
 
-### 🧱 Components
-- **Realms** = Smart Contracts  
-- **Packages** = Shared Libraries  
+### 🧱 Core Components
+
+- **Realms** → Smart contracts  
+- **Packages** → Reusable libraries  
 
 💰 Native Token: **GnoT**
 
-<!--
-Gno.land uses the Gno programming language (based on Go), interpreted and executed on GnoVM. Every deployed contract is open-source and includes comments. GnoT is used to interact with the chain.
--->
-
 ---
 
-## ⚙️ Go Environment Setup
+# ⚙️ Go Environment Setup
 
-If Go isn't already set up, add the following to your shell config:
+If Go isn’t already set up, add the following to your shell config:
 
 ```bash
-# For .bashrc, .zshrc, etc.
+# For bash, zsh, etc.
 export PATH=$PATH:$HOME/go/bin
-````
+```
 
 ```fish
-# For fish shell
+# For fish shell users
 set -gx PATH $PATH $HOME/go/bin
 ```
 
-💡 Restart your shell afterward
-
----
-
-## 🛠️ Coming Up Next...
-
-* Build a basic Realm
-* Deploy locally with `gnodev`
-* Understand `gno.mod`
-* Use Gnoweb for interaction
-* Test the contract
-* Explore Gno playground & Adena wallet
+💡 Restart your shell for the changes to take effect.
 
 <!--
-Example:
-- Build a counter Realm
-- Deploy locally
-- Interact with Gnoweb
--->
+## ⏭️ Coming Up in Episode 2
 
+- ✨ Build a basic Realm (smart contract)  
+- 🚀 Deploy locally using `gnodev`  
+- 📦 Understand the `gno.mod` system  
+- 🌐 Interact with Gnoweb  
+- 🧪 Write and run smart contract tests  
+
+📌 **Example Project**: Counter Realm
+-->

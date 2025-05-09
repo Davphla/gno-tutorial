@@ -62,14 +62,22 @@ type Post struct {
 # Let's code it!
 
 <!--
+
+Code part :
+Introduce our repository
+
 Important concept
 
 - **Embrace global state**  
   Realms *are* global by design — use them like APIs for shared data.
 
 - **Fail fast with `panic`**  
-Embrace it for fast failure in smart contract logic.
-  Avoid silent errors. Panic clearly when assumptions break.  
+It's used as a control flow mechanism to stop the execution
+of a realm when something goes wrong use panic 
+to enforce contract rules and protect the integrity of your contract's state
+
+Embrace Panic for fast failure in realm to avoid silent errors.
+Panic clearly when assumptions break.  
 
 - **Design for readability**  
   Code clarity matters more than cleverness — your smart contracts are public infrastructure.
